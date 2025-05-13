@@ -148,8 +148,7 @@ export class MemoryGame {
         this.matchedPairs = 0;
         this.updateStats();
         this.createBoard();
-        document.getElementById('win-message').classList.add('d-none');
-    }
+        document.getElementById('win-message').classList.add('d-non
 }
 =======
 import { Card } from './card.js';
@@ -206,4 +205,6 @@ function checkMatch() {
 function resetTurn() {
   [firstCard, secondCard] = [null, null];
   boardLocked = false;
+}
+=======
 }
