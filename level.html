@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Select Level - Memory Game</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- ملف CSS الخاص بالتنسيقات -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container py-5 text-center">
+    <!-- عنوان الصفحة -->
+    <h2 class="mb-4 text-white">choose level</h2>
+
+    <!-- بطاقات اختيار المستوى -->
+    <div class="row g-4 justify-content-center">
+      <!-- مستوى سهل -->
+      <div class="col-md-4">
+        <div class="card p-4 level-card" data-level="easy">
+          <div class="text-warning mb-2"><i class="fas fa-baby fa-2x"></i></div>
+          <h4>easy</h4>
+          <p>4×4</p>
+        </div>
+      </div>
+
+      <!-- مستوى متوسط -->
+      <div class="col-md-4">
+        <div class="card p-4 level-card" data-level="medium">
+          <div class="text-info mb-2"><i class="fas fa-child fa-2x"></i></div>
+          <h4>medium</h4>
+          <p>6×6 - 36 كرت</p>
+        </div>
+      </div>
+
+      <!-- مستوى صعب -->
+      <div class="col-md-4">
+        <div class="card p-4 level-card" data-level="hard">
+          <div class="text-danger mb-2"><i class="fas fa-user-ninja fa-2x"></i></div>
+          <h4>hard</h4>
+          <p>8×8 - 64 كرت</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- زر بدء اللعبة -->
+    <button id="startGame" class="btn btn-lg mt-5" disabled>
+      <i class="fas fa-play me-2"></i> start game
+    </button>
+  </div>
+
+  <!-- ملف جافا سكريبت الخاص باختيار المستوى -->
+  <script src="level.js"></script>
+</body>
+</html>

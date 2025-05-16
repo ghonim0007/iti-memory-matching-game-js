@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Game - Start</title>
+  <!-- ربط مكتبة Bootstrap للتنسيق -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- ربط أيقونات FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- ربط ملف CSS مخصص -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container text-center py-5">
+    <h1 class="mb-4">Welcome to Memory Match</h1>
+
+    <!-- حقل إدخال اسم اللاعب -->
+    <div class="mb-4">
+      <label for="username" class="form-label fw-bold">Enter Your Name</label>
+      <input type="text" id="username" class="form-control text-center w-50 mx-auto" placeholder="Player Name" required />
+    </div>
+
+    <!-- زر الانتقال لاختيار المستوى -->
+    <button id="startGame" class="btn btn-success btn-lg">
+      <i class="fas fa-play me-2"></i> Choose Level
+    </button>
+  </div>
+
+  <!-- ربط ملف جافا سكريبت خاص بهذه الصفحة -->
+  <script src="start.js"></script>
+</body>
+</html>
