@@ -1,0 +1,185 @@
+<!-- fbffgn -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Game - Start</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Neue', cursive;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .animated-background {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #e47e95, #dea4b3, #c279a0, #de94a4);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .bubbles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bubbles span {
+      position: absolute;
+      bottom: -60px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: rise 10s ease-in infinite;
+      opacity: 0.6;
+    }
+
+    .bubbles span:nth-child(1)  { left: 10%; width: 25px; height: 25px; animation-duration: 12s; }
+    .bubbles span:nth-child(2)  { left: 25%; width: 15px; height: 15px; animation-duration: 8s; }
+    .bubbles span:nth-child(3)  { left: 50%; width: 20px; height: 20px; animation-duration: 10s; }
+    .bubbles span:nth-child(4)  { left: 75%; width: 30px; height: 30px; animation-duration: 14s; }
+    .bubbles span:nth-child(5)  { left: 90%; width: 18px; height: 18px; animation-duration: 9s; }
+    .bubbles span:nth-child(6)  { left: 5%; width: 12px; height: 12px; animation-duration: 11s; }
+    .bubbles span:nth-child(7)  { left: 35%; width: 16px; height: 16px; animation-duration: 13s; }
+    .bubbles span:nth-child(8)  { left: 60%; width: 22px; height: 22px; animation-duration: 10s; }
+    .bubbles span:nth-child(9)  { left: 80%; width: 19px; height: 19px; animation-duration: 12s; }
+    .bubbles span:nth-child(10) { left: 95%; width: 14px; height: 14px; animation-duration: 9s; }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .game-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      margin-top: 15rem;
+      max-width: 600px;
+    }
+
+    .game-title {
+      color: rgb(196, 95, 112);
+      font-weight: 700;
+    }
+
+    .game-icon {
+      font-size: 4rem;
+      color: rgb(196, 95, 112);
+      margin-bottom: 1rem;
+    }
+
+    .btn-start {
+      background-color: rgb(196, 95, 112);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .nav-link:hover {
+      color: white !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="animated-background">
+    <div class="bubbles">
+      <!-- 10 sample bubbles -->
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-clone me-2"></i>MemoryMatch</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="game.html"><i class="fas fa-gamepad me-1"></i> Play</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="leaderboard.html"><i class="fas fa-trophy me-1"></i> Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="how-to-play.html"><i class="fas fa-question-circle me-1"></i> How to Play</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="game-container text-center mx-auto">
+        <div class="game-icon"><i class="fas fa-clone"></i></div>
+        <h1 class="game-title mb-4">Memory Match Game</h1>
+        <div class="mb-4">
+          <label for="username" class="form-label fw-bold">Enter Your Name</label>
+          <input type="text" class="form-control text-center" id="username" placeholder="Player Name" required />
+        </div>
+        <button id="startGame" class="btn btn-start" onclick="window.location.href='level.html'">
+          <i class="fas fa-play me-2"></i> Choose Level
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
