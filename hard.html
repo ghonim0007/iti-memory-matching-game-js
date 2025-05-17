@@ -1,9 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hard Level</title>
-  </head>
-  <body></body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Adventure - Hard</title>
+  <link rel="icon" type="image/x-icon" href="./assets/global/icons/page-icon.png">
+   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/hard.css">
+  <link rel="stylesheet" href="/css/popup.css">
+  <style>#countdown-overlay {text-shadow: 0 0 20px #4fd1c5, 0 0 40px #4fd1c5, 0 0 60px #4fd1c5;}
+  .timer-circle {stroke: #396cb38f;}
+
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/96c4538cb1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="navbar">
+    <button id="settings-button" class="settings-button ">Settings</button>
+    <button id="hint-button" class="floating-button">Hint:<span id="hints-remaining"></span></button>
+    <button id="start-restart-btn" class="floating-button">Start </button>
+  </div>
+
+
+ <!-- Settings Pop-Up -->
+<div id="settings-popup" class="settings-popup hidden">
+  <div class="settings-popup-content">
+    <span class="close" onclick="closeSettingsPopup()">&times;</span>
+    <ul>
+      <li>
+        <div class="icons-container">
+          <a href="index.html" onclick="selectOption('Home')">
+            <img class="img1" src="assets/global/icons/home.png" alt="Home">
+          </a>
+          <a href="#" onclick="selectOption('Music')">
+            <button id="music-toggle" aria-label="Toggle Sound">
+              <img class="img2" src="./assets/global/icons/sound-on.png" alt="Sound On" id="sound-icon">
+            </button>
+          </a>
+        </div>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+  <div class="game-container">
+    <h1>Cosmic Quest</h1>
+
+    <!-- Game Info -->
+    <div class="game-info">
+      <div class="moves">Moves: <span id="moves">0</span></div>
+      <div class="timer">Time: <span id="timer">00:00</span></div>
+    </div>
+
+    <!-- Card Grid -->
+    <div class="card-grid"></div>
+
+
+    <!-- Progress Bar Container -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="game-over hidden">
+      <p>You completed the level!</p>
+      <p>Time: <span id="final-time">00:00</span></p>
+      <p>Moves: <span id="final-moves">0</span></p>
+      <button id="next-level">Next Level</button>
+      <button id="save-score">Save Score & Return Home</button>
+    </div>
+
+  </div>
+
+
+
+  <!-- Audio Elements -->
+  <audio id="background-music" loop>
+    <source src="assets/hard/audio/background-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="click-sound">
+    <source src="assets/hard/audio/click-sound.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="wrong-sound">
+    <source src="/assets/hard/audio/wrong-sound.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="match-sound">
+    <source src="assets/hard/audio/match-sound.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="win-sound">
+    <source src="assets/hard/audio/win-sound.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="./js/start.js" type="module"></script>
+  <script type="module">
+    import { GameLogic } from '/js/modules/gameLogic.js';
+    const totalCards = 64; // Define total cards for Hard level
+    const gameLogic = new GameLogic(totalCards, 'hard'); // Pass totalCards and level
+    gameLogic.start();
+    gameLogic.startLevel(); // Initialize the Start/Restart functionality
+  </script>
+
+<script src="./js/modules/preload.js" type="module"></script>
+<script src="./js/start.js" type="module"></script>
+<script src="./js/modules/settings.js" type="module"></script>
+<script src="./js/modules/gameSound.js" type="module"></script>
+  
+</body>
+
 </html>

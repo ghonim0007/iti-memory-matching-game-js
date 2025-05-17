@@ -1,9 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Medium Level</title>
-  </head>
-  <body></body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Adventure - Medium</title>
+  <link rel="icon" type="image/x-icon" href="./assets/global/icons/page-icon.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/popup.css">
+  <link rel="stylesheet" href="/css/medium.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Mario's Madness</h1>
+
+    <!-- Controls Section -->
+    <div class="controls">
+      <button id="start-restart-btn" class="eightbit-btn">Start Game</button>
+      <span id="hint-button">Hint? <span id="hints-remaining"></span>
+    </div>
+
+    <!-- Layout for Game Info and Cards -->
+    <div id="layout">
+
+      <!-- Game Info Container -->
+      <div class="game-info-container">
+        <p>Moves: <span id="moves">0</span></p>
+        <p>Time: <span id="timer">00:00</span></p>
+      </div>
+
+      <!-- Card Grid -->
+      <div id="game-board" class="card-grid"></div>
+      <img src="/assets/medium/images/mario-dance.gif" alt="Floating Mario" class="floating-mario">
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="game-over hidden">
+      <p>You completed the level!</p>
+      <p>Time: <span id="final-time">00:00</span></p>
+      <p>Moves: <span id="final-moves">0</span></p>
+      <button id="next-level" class="eightbit-btn">Next Level</button>
+      <button id="save-score" class="eightbit-btn">Save Score & Return Home</button>
+    </div>
+
+    <button id="settings-button" type="button" class="settings-button material-icons">settings</button>    
+
+
+    <!-- Progress Bar Container -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+  <!-- Settings Pop-Up -->
+<div id="settings-popup" class="settings-popup hidden">
+  <div class="settings-popup-content">
+    <span class="close" onclick="closeSettingsPopup()">&times;</span>
+    <ul>
+      <li>
+        <div class="icons-container">
+          <a href="index.html" onclick="selectOption('Home')">
+            <img class="img1" src="assets/global/icons/home.png" alt="Home">
+          </a>
+          <a href="#" onclick="selectOption('Music')">
+            <button id="music-toggle" aria-label="Toggle Sound">
+              <img class="img2" src="./assets/global/icons/sound-on.png" alt="Sound On" id="sound-icon">
+            </button>
+          </a>
+        </div>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <!-- Audio Elements -->
+    <audio id="background-music" loop>
+      <source src="assets/medium/audio/background-music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="click-sound">
+      <source src="assets/medium/audio/click-sound.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="match-sound">
+      <source src="assets/medium/audio/match-sound.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="wrong-sound">
+      <source src="/assets/medium/audio/wrong-sound.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="win-sound">
+      <source src="/assets/medium/audio/win-sound.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script type="module">
+    import { GameLogic } from '/js/modules/gameLogic.js';
+    const totalCards = 36; // Define total cards for Medium level
+    const gameLogic = new GameLogic(totalCards, 'medium'); // Pass totalCards and level
+    gameLogic.start();
+    gameLogic.startLevel(); // Initialize the Start/Restart functionality
+</script>
+<script src="./js/modules/preload.js" type="module"></script>
+<script src="./js/start.js" type="module"></script>
+<script src="./js/modules/settings.js" type="module"></script>
+<script src="./js/modules/gameSound.js" type="module"></script>
+</body>
 </html>

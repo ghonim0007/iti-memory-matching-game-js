@@ -1,39 +1,58 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Card Game</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container text-center">
-        <h1 class="my-4">Memory Card Game</h1>
-        
-        <div class="game-controls mb-4">
-            <button id="start-game" class="btn btn-primary">Start Game</button>
-            <button id="reset-game" class="btn btn-secondary">Reset</button>
-            <div class="game-stats mt-2">
-                <span class="badge bg-info">Moves: <span id="moves">0</span></span>
-                <span class="badge bg-success mx-2">Score: <span id="score">0</span>/100</span>
-                <span class="badge bg-warning">Time: <span id="time">00:00</span></span>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Adventure</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/global/icons/page-icon.png"
+    />
+    <link rel="stylesheet" href="/css/popup.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="space-background">
+      <!-- Start Page Content -->
+      <div class="start-container">
+        <h1 class="start-title mb-5">Memory Matching Game</h1>
+        <div class="menu-options">
+          <button
+            id="start-game"
+            class="d-block m-auto btn-lg mybtn-start mt-5 fs-2"
+          >
+            <i class="fas fa-play me-2"></i> Start Game
+          </button>
         </div>
-        
-        <div id="game-board" class="row justify-content-center"></div>
-        
-        <div id="win-message" class="alert alert-success mt-4 d-none">
-            <h2>🎉 Congratulations! You won! 🎉</h2>
-            <p>Your Score: <span id="final-score">0</span>0/100</p>
-            <p>Time: <span id="final-time">00:00</span></p>
-            <p>Moves: <span id="final-moves">0</span></p>
-            <button id="play-again" class="btn btn-primary">Play Again</button>
-        </div>
-    </div>
+      </div>
 
-  <!-- Load JavaScript Modules -->
-  <script type="module" src="js/app.js"></script>
-  <!-- <script type="module" src="js/game.js"></script>
-  <script type="module" src="js/timer.js"></script>
-  <script type="module" src="js/utils.js"></script> -->
-</body>
+      <script src="./js/start.js" defer type="module"></script>
+      <script src="./js/modules/preload.js" type="module"></script>
+      <script src="./js/modules/settings.js" type="module"></script>
+    </div>
+  </body>
 </html>
