@@ -12,7 +12,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container text-center py-5">
+ <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, 0.3); backdrop-filter: blur(5px);">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">
+      <i class="fas fa-clone me-2"></i> MemoryMatch
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="level.html"><i class="fas fa-gamepad me-1"></i> Play</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="container text-center py-4">
     <h1 class="mb-4">Welcome to Memory Match</h1>
 
     <!-- حقل إدخال اسم اللاعب -->
@@ -27,7 +49,9 @@
     </button>
   </div>
 
+
   <!-- ربط ملف جافا سكريبت خاص بهذه الصفحة -->
   <script src="start.js"></script>
+   <script src="sound.js"></script>
 </body>
 </html>
