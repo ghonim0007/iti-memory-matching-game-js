@@ -1,317 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Adventure - medium</title>
-  <link rel="icon" type="image/x-icon" href="./assets/global/icons/page-icon.png" />
+  <title>Memory Adventure - Medium</title>
   <link rel="stylesheet" href="/css/medium.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
 </head>
-
 <body>
-  <!-- Game Countainer-->
   <div class="container mediumPage">
-    <h2 >Medium Level</h2>
+    <h2>Medium Level</h2>
+    <div class="game-info-container">
+      <p>Moves: <span id="moves">0</span></p>
+      <p>Time: <span id="timer">00:00</span></p>
+    </div>
 
-    <!-- Game Info Container -->
-     <div class="game-info-container">
-          <p>Moves: <span id="moves">0</span></p>
-          <p>Time: <span id="timer">00:00</span></p>
-        </div> 
-
-    <!-- Card Grid -->
     <div id="game-board" class="card-grid">
-     <div class="card-container">
-        <div class="flipCard card" data_logo="Bones" >
-          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
       <div class="card-container">
-        <div class="flipCard card" data_logo="Bones" >
-          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+        <div class="flipCard card" data_logo="Bat">
+          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt="Bat"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Bat">
-          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt="Bat"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Bones">
+          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt="Bones"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Bones">
+          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt="Bones"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Cauldron">
+          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt="Cauldron"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Cauldron">
+          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt="Cauldron"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Cobweb">
+          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt="Cobweb"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Cobweb">
+          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt="Cobweb"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="CobwebGrey">
+          <div class="card-face card-front"><img src="assets/global/images/CobwebGrey.png" alt="CobwebGrey"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="CobwebGrey">
+          <div class="card-face card-front"><img src="assets/global/images/CobwebGrey.png" alt="CobwebGrey"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Dracula">
+          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt="Dracula"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Dracula">
+          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt="Dracula"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Eye">
+          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt="Eye"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Eye">
+          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt="Eye"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Ghost">
+          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt="Ghost"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Ghost">
+          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt="Ghost"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Pumpkin">
+          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt="Pumpkin"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Pumpkin">
+          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt="Pumpkin"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Skull">
+          <div class="card-face card-front"><img src="assets/global/images/Skull.png" alt="Skull"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Skull">
+          <div class="card-face card-front"><img src="assets/global/images/Skull.png" alt="Skull"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Spider">
+          <div class="card-face card-front"><img src="assets/global/images/Spider.png" alt="Spider"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Spider">
+          <div class="card-face card-front"><img src="assets/global/images/Spider.png" alt="Spider"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Bat">
-          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt="Bat"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
-        <div class="flipCard card" data_logo="Eye">
-          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+        <div class="flipCard card" data_logo="Bat">
+          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt="Bat"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
-        <div class="flipCard card" data_logo="Eye">
-          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+        <div class="flipCard card" data_logo="Bones">
+          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt="Bones"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
-        <div class="flipCard card" data_logo="Cauldron">
-          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Cauldron">
-          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Cobweb">
-          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Cobweb">
-          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Ghost">
-          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Ghost">
-          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-        <div class="card-container">
-        <div class="flipCard card" data_logo="Bones" >
-          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Bones" >
-          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Bat2">
-          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Bat2">
-          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Eye">
-          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Eye">
-          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+        <div class="flipCard card" data_logo="Bones">
+          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt="Bones"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Cauldron">
-          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt="Cauldron"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Cauldron">
-          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt="Cauldron"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Cobweb">
-          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt="Cobweb"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Cobweb">
-          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt="Cobweb"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Skull">
+          <div class="card-face card-front"><img src="assets/global/images/Skull.png" alt="Heart"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Skull">
+          <div class="card-face card-front"><img src="assets/global/images/Skull.png" alt="Heart"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+            <div class="card-container">
+        <div class="flipCard card" data_logo="Cobweb">
+          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt="Cobweb"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="flipCard card" data_logo="Cobweb">
+          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt="Cobweb"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt="Heart"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
       <div class="card-container">
         <div class="flipCard card" data_logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt="Heart"></div>
+          <div class="card-face card-back"><img src="assets/global/images/Cobweb.png" alt="Back"></div>
         </div>
       </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Ghost">
-          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Ghost">
-          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-           <div class="card-container">
-        <div class="flipCard card" data_logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-         <div class="card-container">
-        <div class="flipCard card" data_logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data_logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-          </div>
+    </div>
 
-
-      <!-- Settings -->
     <div class="sittings">
-        <button class="settings-button"><i class="fa-solid fa-gear"></i> Settings</button>
-      </div>
-
-      <!-- Game Over Modal -->
-      <!-- <div class="game-over hidden">
-        <p>You completed the level!</p>
-        <p>Time: <span id="final-time">00:00</span></p>
-        <p>Moves: <span id="final-moves">0</span></p>
-        <button id="next-level">Next Level</button>
-        <button id="save-score">Save Score & Return Home</button>
-      </div> -->
-
-      <!-- <button id="settings-button" type="button" class="settings-button material-icons">settings</button>     -->
-      <!-- Settings Pop-Up -->
-      <!-- <div id="settings-popup" class="settings-popup hidden">
-  <div class="settings-popup-content">
-    <span class="close" onclick="closeSettingsPopup()">&times;</span>
-    <ul>
-      <li>
-        <div class="icons-container">
-          <a href="index.html" onclick="selectOption('Home')">
-            <img class="img1" src="assets/global/icons/home.png" alt="Home">
-          </a>
-          <a href="#" onclick="selectOption('Music')">
-            <button id="music-toggle" aria-label="Toggle Sound">
-              <img class="img2" src="./assets/global/icons/sound-on.png" alt="Sound On" id="sound-icon">
-            </button>
-          </a>
-        </div>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
-      </li>
-    </ul>
+      <button class="settings-button"><i class="fa-solid fa-gear"></i> Settings</button>
+    </div>
   </div>
-</div> -->
-
-      <!-- Progress Bar Container -->
-      <!-- <div class="progress-bar-container">
-    <div class="progress-bar" id="progress-bar"></div>
-  </div> -->
-
-    <!-- Main Moudle -->
-  <!-- <script src="./js/start.js" type="module"></script> -->
-
-    <script type="module">
-
-      // import { startGame  } from "/js/modules/gameLogic.js";
-      import { Images , renderCards , shuffleArray} from './js/modules/utils.js';
-
-    const gameBoard = document.getElementById('game-board');
-    renderCards(gameBoard, Images);
-
-      // const totalCards = 36; // Define total cards for Easy level
-      // startGame(totalCards, "medium");
-      // const gameLogic = new GameLogic(totalCards, 'medium'); // Pass totalCards and level
-      // gameLogic.start();
-      // gameLogic.startLevel(); // Initialize the Start/Restart functionality
-      document.querySelectorAll(".card-container").forEach((block) => {
-        block.addEventListener("click", () => {
-          const card = block.querySelector(".card");
-          card.classList.toggle("flipped");
-        });
-      });
-    </script>
-<script src="./js/modules/settings.js" type="module"></script>
-<script src="./js/modules/gameSound.js" type="module"></script>
-  </body>
-
+</body>
 </html>
-
