@@ -29,7 +29,22 @@
         </button>
       </div>
     </div>
+<script type="module">
+ const backgroundMusic = new Audio('./assets/easy/audio/background-music.mp3');
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.3;
+backgroundMusic.play();
+window.addEventListener('DOMContentLoaded', () => {
+  shuffleCards();
+  setTimeout(() => {
+    previewCards();
+  }, 300);
 
+  backgroundMusic.play().catch(e => {
+    console.warn("Background music play blocked until user interaction.");
+  });
+});
+  </script>
     <script src="./js/start.js" defer type="module"></script>
     <script src="./js/modules/settings.js" type="module"></script>
   </div>
