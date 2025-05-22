@@ -1,9 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .space-background {
-  background-image: url("/assets/global/images/animated-gifs-of-fighting-game-backgrounds-27.webp");
+  background: url("/assets/global/images/animated-gifs-of-fighting-game-backgrounds-27.webp")
+    no-repeat center center fixed;
+  font-family: "tahoma", sans-serif;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  color: white;
   height: 100vh;
+  overflow: hidden;
+}
+
+.space-background #show-score {
+  background-color: rgb(95, 136, 196);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.space-background #show-score:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(150, 70, 85);
+  color: white;
+}
+
+.start-container {
+  text-align: center;
+  position: relative;
+  top: 30%;
+}
+.start-title {
+  font-size: 5rem;
+  color: white;
+}
+
+.mybtn-start {
+  background-color: rgb(95, 136, 196);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mybtn-start:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(150, 70, 85);
+  color: white;
 }
 * {
   margin: 0;
@@ -70,6 +125,10 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+.game-container h2 {
+  margin-top: 3rem;
+}
+
 .show {
   display: flex !important;
 }
@@ -77,8 +136,8 @@ body {
 #settings-modal {
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: none;
   justify-content: center;
   align-items: center;
@@ -86,19 +145,19 @@ body {
 
 #settings-modal .settings-container {
   background-color: #000;
-  width: 30vw;
+  width: 50vw;
   padding: 1rem;
   border: 2px solid orange;
   box-shadow: 5px 5px 20px orange, -5px -5px 20px orange;
 }
 
-#settings-modal .settings-container h2 {
-  text-align: center;
-}
-
 #settings-modal .settings-container .settings-content ul {
   margin: 0;
   padding: 0;
+}
+
+#settings-modal .settings-container .settings-content p {
+  margin-bottom: 1rem;
 }
 
 #settings-modal .settings-container .settings-content ul li {
@@ -110,13 +169,83 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.3rem;
+}
+
+#settings-modal .settings-container .settings-header button {
+  background: red;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.2rem;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#settings-modal .settings-container .settings-content #unmute-button,
+#settings-modal .settings-container .settings-content #mute-button {
+  background: red;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.2rem;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#end-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.againBtn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 768px) {
   .mycontainer {
     height: auto;
   }
+
+  .start-container .start-title {
+    font-size: 3rem;
+  }
+
   .difficulty-card:hover {
     transform: scale(0.9);
+  }
+
+  #settings-modal .settings-container {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .start-container .start-title {
+    font-size: 1.9rem;
   }
 }

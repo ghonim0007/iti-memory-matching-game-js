@@ -21,12 +21,29 @@ body {
   left: 60px;
 }
 
+.hardPage .home {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+}
+
+.hardPage .home .home-btn {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
 .hardPage .main-title {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
   color: white;
-  margin-top: 5px;
+  margin-top: 3rem;
   margin-bottom: 5px;
   text-shadow: 5px 3px 10px darkviolet, -5px -3px 10px darkviolet;
 }
@@ -37,7 +54,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  width: 100vw !important;
   background-image: url("/assets/global/images/animated-gifs-of-fighting-game-backgrounds-19.webp");
   background-size: cover;
   background-position: center;
@@ -78,9 +94,10 @@ body {
   outline: none;
   border: none;
   color: #fff;
-  font-size: 1.5rem;
-  transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .game-info-container #hint-button span {
@@ -89,6 +106,25 @@ body {
 
 .game-info-container #hint-button:hover {
   background-color: rgba(135, 240, 109, 0.7);
+}
+
+.game-info-container #reset-game {
+  background-color: #ff2600;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.game-info-container #reset-game span {
+  font-size: 1.2rem;
+}
+
+.game-info-container #reset-game:hover {
+  background-color: rgba(255, 38, 0, 0.7);
 }
 
 .game-info-container p {
@@ -194,10 +230,15 @@ body {
 
 .card.matched {
   pointer-events: none;
+  animation: matchScale 1s ease;
 }
 
-.sittings {
-  margin-top: 10px;
+.settings {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 1rem;
+  margin-right: 1rem;
 }
 
 .settings-button {
@@ -207,16 +248,14 @@ body {
   border: none;
   transition: background 0.3s ease;
   padding: 20px 20px;
-  position: absolute;
   border-radius: 30px;
   font-weight: bolder;
   font-size: 1rem;
-  right: 2%;
-  bottom: 5%;
 }
 .settings-button:hover {
   background-color: rgba(78, 85, 104, 0.9);
 }
+<<<<<<< HEAD
 .btn {
   padding: 10px 10px;
   border-radius: 8px;
@@ -236,3 +275,77 @@ button.btn {
   position: relative;
   bottom: 0;
 }
+=======
+
+.btn span {
+  font-size: 1.6rem;
+}
+
+@keyframes matchScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(8, 35px);
+    grid-template-rows: repeat(8, 35px);
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .hardPage .main-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .option-btns #hint-button {
+    padding: 0.3 0.4;
+    font-size: 1rem;
+  }
+
+  .option-btns #hint-button span {
+    font-size: 1rem;
+  }
+
+  .option-btns #reset-game {
+    padding: 0.3 0.4;
+    font-size: 1rem;
+  }
+
+  .option-btns #reset-game span {
+    font-size: 1rem;
+  }
+  .card {
+    width: 35px;
+    height: 35px;
+  }
+  .game-info-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .main-title {
+    margin-top: 20%;
+  }
+
+  .option-btns {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  .settings-button {
+    padding: 10px 10px;
+    bottom: 2%;
+  }
+}
+>>>>>>> 69418c0 (added media query styling)

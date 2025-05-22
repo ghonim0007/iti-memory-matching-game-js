@@ -20,9 +20,16 @@
   <body>
     <!-- Game Container-->
     <div class="container esayPage">
-            <div class="home">
-        <a class="nav-link active " aria-current="page" href="index.html"><i class="fa-solid fa-house"></i>  Home</a>
-</div>
+      <div class="home">
+        <a class="nav-link active" aria-current="page" href="index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
+      </div>
+      <div class="home">
+        <a class="home-btn" aria-current="page" href="index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
+      </div>
       <h2 class="main-title">Easy Level</h2>
 
       <!-- Game Info Container -->
@@ -33,6 +40,14 @@
           <button id="hint-button">
             Hint:<span id="hints-remaining">3</span>
           </button>
+          <div class="option-btns">
+            <button id="hint-button">
+              Hint:<span id="hints-remaining">3</span>
+            </button>
+            <button class="" id="reset-game">
+              <span>Reset </span>
+            </button>
+          </div>
         </div>
 
         <!-- Card Grid -->
@@ -212,9 +227,8 @@
         <div id="end-message"></div>
         <button class="againBtn">Play Again</button>
       </div>
-      
       <!-- Settings -->
-      <div class="sittings">
+      <div class="settings">
         <button class="settings-button">
           <i class="fa-solid fa-gear"></i> Settings
         </button>
@@ -256,9 +270,9 @@
         </div>
       </div>
 
-     <button class="btn" id="reset-game">
- <span>Reset Game </span> <i class="fa-solid fa-arrow-rotate-right"></i>
-</button>
+      <button class="btn" id="reset-game">
+        <span>Reset Game </span> <i class="fa-solid fa-arrow-rotate-right"></i>
+      </button>
     </div>
 
     <script type="module" src="js/modules/gameLogic.js" defer></script>
