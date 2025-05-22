@@ -1,17 +1,16 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("/assets/easy/images/background.gif") no-repeat center center fixed;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: url("/assets/easy/images/background.gif") no-repeat center center
+    fixed;
   background-size: cover;
-  font-family: "Press Start 2P", cursive;
   color: white;
   height: 100vh;
   overflow: hidden;
 }
 
-
-
-.mediumPage h2 {
+.mediumPage .main-title {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
@@ -19,6 +18,7 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
   font-family: monospace;
+  text-shadow: 5px 3px 10px darkviolet, -5px -3px 10px darkviolet;
 }
 
 .container {
@@ -34,14 +34,51 @@ body {
   background-repeat: no-repeat;
   padding-top: 20px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 15px;
 }
 
 .game-info-container {
   display: flex;
   gap: 50px;
   font-size: 2rem;
-  margin-bottom: 20px;
-  z-index: 1;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-info-container p {
+  font-size: 1.5rem;
+}
+
+.game-info-container p span {
+  font-size: 1.5rem;
+}
+
+.game-info-container #hint-button {
+  border-radius: 10px;
+  background-color: mediumpurple;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.game-info-container #hint-button span {
+  font-size: 1.5rem;
+}
+
+.game-info-container #hint-button:hover {
+  background-color: rgba(135, 240, 109, 0.7);
 }
 
 .game-info-container p {
@@ -57,13 +94,13 @@ body {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(6, 70px); 
+  grid-template-columns: repeat(6, 70px);
   grid-template-rows: repeat(6, 70px);
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
   margin-bottom: 20px;
   max-height: calc(100vh - 150px);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .card-container {
@@ -94,7 +131,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   color: white;
 }
 
@@ -106,11 +143,11 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-back {
-  background: #ff5722;
+  background: #fff;
   transform: rotateY(180deg);
 }
 
@@ -127,7 +164,11 @@ body {
   perspective: 1000px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  border: 2px solid white;
+  border: 2px solid #fff;
+}
+
+.card-front {
+  background-color: orange;
 }
 
 .card-front,
@@ -155,22 +196,18 @@ body {
 
 .settings-button {
   cursor: pointer;
-  background-color: rgba(209, 209, 209, 0.8);
-  box-shadow: 2px 2px 8px rgba(135, 240, 109, 0.7);
+  background-color: #000;
+  color: white;
   border: none;
-  border-radius: 10px;
-  padding: 15px 20px;
-  font-family: "Press Start 2P", cursive;
-  text-decoration: none;
+  transition: background 0.3s ease;
+  padding: 20px 20px;
   position: absolute;
   border-radius: 30px;
   font-weight: bolder;
   font-size: 1rem;
   right: 2%;
   bottom: 5%;
-  color: black;
 }
-
 .settings-button:hover {
-  background-color: rgba(135, 240, 109, 0.7);
+  background-color: rgba(78, 85, 104, 0.9);
 }
