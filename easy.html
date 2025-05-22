@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memory Adventure - easy</title>
+    <title>Memory Game - easy</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -21,11 +21,6 @@
     <!-- Game Container-->
     <div class="container esayPage">
       <div class="home">
-        <a class="nav-link active" aria-current="page" href="index.html"
-          ><i class="fa-solid fa-house"></i> Home</a
-        >
-      </div>
-      <div class="home">
         <a class="home-btn" aria-current="page" href="index.html"
           ><i class="fa-solid fa-house"></i> Home</a
         >
@@ -37,9 +32,6 @@
         <div class="game-info-container">
           <p>Moves: <span id="moves">0</span></p>
           <p>Time: <span id="timer">00:00</span></p>
-          <button id="hint-button">
-            Hint:<span id="hints-remaining">3</span>
-          </button>
           <div class="option-btns">
             <button id="hint-button">
               Hint:<span id="hints-remaining">3</span>
@@ -227,6 +219,7 @@
         <div id="end-message"></div>
         <button class="againBtn">Play Again</button>
       </div>
+
       <!-- Settings -->
       <div class="settings">
         <button class="settings-button">
@@ -269,10 +262,6 @@
           </div>
         </div>
       </div>
-
-      <button class="btn" id="reset-game">
-        <span>Reset Game </span> <i class="fa-solid fa-arrow-rotate-right"></i>
-      </button>
     </div>
 
     <script type="module" src="js/modules/gameLogic.js" defer></script>

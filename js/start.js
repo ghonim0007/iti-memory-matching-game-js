@@ -64,35 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-<<<<<<< HEAD
-    if (hardCard) {
-        hardCard.addEventListener('click', (event) => {
-            event.preventDefault();
-            selectedLevel = 'hard';
-            window.location.href = './hard.html';
-        });
-    }
-});
-
-
-document.getElementById('show-score').addEventListener('click', function() {
-  const scoresPopup = document.getElementById('score-popup');
-  const scoresContainer = document.getElementById('scores-container');
-  
-  scoresContainer.innerHTML = '';
-  
-  const playersData = JSON.parse(localStorage.getItem('memoryGameScores')) || [];
-  
-  if (playersData.length === 0) {
-    scoresContainer.innerHTML = '<p>No scores recorded yet!</p>';
-  } else {
-    playersData.sort((a, b) => a.time - b.time);
-    
-    const table = document.createElement('table');
-    table.className = 'table table-striped';
-    
-    const thead = document.createElement('thead');
-=======
   if (mediumCard) {
     mediumCard.addEventListener("click", (event) => {
       event.preventDefault();
@@ -129,7 +100,6 @@ document.getElementById("show-score").addEventListener("click", function () {
     table.className = "table table-striped";
 
     const thead = document.createElement("thead");
->>>>>>> 69418c0 (added media query styling)
     thead.innerHTML = `
       <tr>
         <th>Rank</th>
@@ -140,17 +110,10 @@ document.getElementById("show-score").addEventListener("click", function () {
       </tr>
     `;
     table.appendChild(thead);
-<<<<<<< HEAD
-    
-    const tbody = document.createElement('tbody');
-    playersData.forEach((player, index) => {
-      const row = document.createElement('tr');
-=======
 
     const tbody = document.createElement("tbody");
     playersData.forEach((player, index) => {
       const row = document.createElement("tr");
->>>>>>> 69418c0 (added media query styling)
       row.innerHTML = `
         <td>${index + 1}</td>
         <td>${player.player}</td>
@@ -161,19 +124,11 @@ document.getElementById("show-score").addEventListener("click", function () {
       tbody.appendChild(row);
     });
     table.appendChild(tbody);
-<<<<<<< HEAD
-    
-    scoresContainer.appendChild(table);
-  }
-  
-  scoresPopup.style.display = 'flex';
-=======
 
     scoresContainer.appendChild(table);
   }
 
   scoresPopup.style.display = "flex";
->>>>>>> 69418c0 (added media query styling)
 });
 
 function formatTime(seconds) {
@@ -182,11 +137,6 @@ function formatTime(seconds) {
   return `${mins}:${secs}`;
 }
 
-<<<<<<< HEAD
-document.getElementById('close-score').addEventListener('click', function () {
-document.getElementById('score-popup').style.display = 'none';
-=======
 document.getElementById("close-score").addEventListener("click", function () {
   document.getElementById("score-popup").style.display = "none";
->>>>>>> 69418c0 (added media query styling)
 });

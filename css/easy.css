@@ -28,19 +28,6 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-.nav-link {
-  text-decoration: none;
-  color: white;
-}
-.home {
-  font-size: 28px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  left: 60px;
-}
 
 .esayPage .home {
   background: rgba(0, 0, 0, 0.5);
@@ -379,13 +366,6 @@ body {
   background-color: rgba(78, 85, 104, 0.9);
 }
 .btn {
-  padding: 10px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: "Press Start 2P", cursive;
-  font-size: 1.5rem;
-}
-.btn span {
   border-radius: 8px;
   cursor: pointer;
   font-family: "tahoma", cursive;

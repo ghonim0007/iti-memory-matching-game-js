@@ -11,15 +11,16 @@ const flipSound = new Audio("./assets/easy/audio/click-sound.mp3");
 const matchSound = new Audio("./assets/easy/audio/match-sound.mp3");
 const mismatchSound = new Audio("./assets/easy/audio/wrong-sound.mp3");
 const winSound = new Audio("./assets/easy/audio/win-sound.mp3");
-const resetBtn = document.getElementById("reset-game");
+const resetBtn = document.getElementById('reset-game');
+
 
 let firstCard = null;
 let secondCard = null;
 let moves = 0;
-let lockBoard = true;
-const flipDelay = 1000;
+let lockBoard = true; 
+const flipDelay = 1000; 
 const previewTime = 2000;
-const currentLevel = "easy";
+const currentLevel = 'easy'; 
 
 const cards = document.querySelectorAll(".card");
 let timeLeft = 0;
@@ -32,7 +33,7 @@ function flipCard(card) {
     card.classList.contains("matched")
   )
     return;
-
+  
   flipSound.currentTime = 0;
   flipSound.play();
   card.classList.add("flipped");
@@ -59,9 +60,8 @@ function checkMatch() {
 
     playSound(matchSound);
     resetTurn();
-
-    const allMatched =
-      document.querySelectorAll(".card.matched").length === cards.length;
+    
+    const allMatched = document.querySelectorAll('.card.matched').length === cards.length;
     if (allMatched) {
       setTimeout(() => {
         playSound(winSound);
@@ -105,24 +105,23 @@ function endGame(won) {
   if (won) {
     const finalTime = formatTime(timeLeft);
     const timeInSeconds = timeLeft;
-    const playerName = localStorage.getItem("playerName") || "Guest";
+    const playerName = localStorage.getItem('playerName') || 'Guest';
+    
+const gameResults = JSON.parse(localStorage.getItem('memoryGameScores') || '[]');
 
-    const gameResults = JSON.parse(
-      localStorage.getItem("memoryGameScores") || "[]"
-    );
+gameResults.push({
+  player: playerName,
+  time: timeInSeconds,
+  moves: moves,
+  level: currentLevel,
+  date: new Date().toLocaleDateString()
+});
+localStorage.setItem('memoryGameScores', JSON.stringify(gameResults));
 
-    gameResults.push({
-      player: playerName,
-      time: timeInSeconds,
-      moves: moves,
-      level: currentLevel,
-      date: new Date().toLocaleDateString(),
-    });
-    localStorage.setItem("memoryGameScores", JSON.stringify(gameResults));
 
-    localStorage.setItem("gameResults", JSON.stringify(gameResults));
+    localStorage.setItem('gameResults', JSON.stringify(gameResults));
 
-    endCard.innerHTML = `
+   endCard.innerHTML = `
 <h3>Congratulations, you won! 🎉</h3>
 <p>You completed the game in <strong>${finalTime}</strong></p>
 <p>Number of moves: <strong>${moves}</strong></p>
@@ -136,15 +135,10 @@ function endGame(won) {
     endCard.style.textAlign = "center";
     endCard.style.fontFamily = "Arial, sans-serif";
 
-    const showScoreBtn = document.getElementById("show-score");
+    const showScoreBtn = document.getElementById('show-score');
     if (showScoreBtn) {
       const last = gameResults[gameResults.length - 1];
-      showScoreBtn.textContent = `Latest result:${last.player}, ${formatTime(
-        last.time
-      )}, ${last.moves} moves`;
-      showScoreBtn.textContent = `آخر نتيجة: ${last.player}, ${formatTime(
-        last.time
-      )}, ${last.moves} حركات`;
+      showScoreBtn.textContent = `آخر نتيجة: ${last.player}, ${formatTime(last.time)}, ${last.moves} حركات`;
     }
   }
 }
@@ -163,7 +157,7 @@ function formatTime(seconds) {
 
 function startTimer() {
   const timeDisplay = document.getElementById("timer");
-  timeDisplay.textContent = formatTime(timeLeft);
+  timeDisplay.textContent = formatTime(timeLeft); 
   timerInterval = setInterval(() => {
     timeLeft++;
     timeDisplay.textContent = formatTime(timeLeft);
@@ -175,6 +169,7 @@ function restartGame() {
   // document.getElementById("end-div").style.display = 'none';
   location.reload();
 }
+
 
 const hint = document.getElementById("hint-button");
 const hintsRemaining = document.getElementById("hints-remaining");
@@ -214,7 +209,7 @@ function giveHint(duration) {
       hint.style.pointerEvents = "auto";
     }
   }, duration);
-
+  
   if (hintNum > 0) {
     hintNum--;
     hintsRemaining.textContent = hintNum;
@@ -248,5 +243,4 @@ const againBtn = document.querySelector(".againBtn");
 if (againBtn) {
   againBtn.addEventListener("click", restartGame);
 }
-
-resetBtn.addEventListener("click", restartGame);
+resetBtn.addEventListener('click',restartGame)

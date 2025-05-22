@@ -26,19 +26,6 @@ body {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-.nav-link {
-  text-decoration: none;
-  color: white;
-}
-.home {
-  font-size: 28px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  left: 60px;
-}
 
 .mediumPage .main-title {
   text-align: center;
@@ -269,18 +256,16 @@ body {
   font-size: 1.5rem;
 }
 .btn span {
-  .btn span {
-    font-size: 1.6rem;
-  }
-  button.btn {
-    background-color: #ff2600;
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    position: relative;
-    bottom: 0;
-  }
+  font-size: 1.6rem;
+}
+button.btn {
+  background-color: #ff2600;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  position: relative;
+  bottom: 0;
 }
 
 @keyframes matchScale {
