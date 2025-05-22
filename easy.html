@@ -1,185 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game - easy</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/global/icons/page-icon.png"
+    />
+    <link rel="stylesheet" href="/css/easy.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Adventure - easy</title>
-  <link rel="icon" type="image/x-icon" href="./assets/global/icons/page-icon.png" />
-  <link rel="stylesheet" href="/css/easy.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <body>
+    <!-- Game Container-->
+    <div class="container esayPage">
+      <div class="home">
+        <a class="home-btn" aria-current="page" href="index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
+      </div>
+      <h2 class="main-title">Easy Level</h2>
 
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
-</head>
-
-<body>
-  <!-- Game Countainer-->
-  <div class="container esayPage">
-    <h2 >Easy Level</h2>
-
-    <!-- Game Info Container -->
-     <div class="game-info-container">
+      <!-- Game Info Container -->
+      <div class="overlay">
+        <div class="game-info-container">
           <p>Moves: <span id="moves">0</span></p>
-          <p>Time: <span id="timer">180</span></p>
-        </div> 
+          <p>Time: <span id="timer">00:00</span></p>
+          <div class="option-btns">
+            <button id="hint-button">
+              Hint:<span id="hints-remaining">3</span>
+            </button>
+            <button class="" id="reset-game">
+              <span>Reset </span>
+            </button>
+          </div>
+        </div>
 
-    <!-- Card Grid -->
-    <div id="game-board" class="card-grid">
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Bones" >
-          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+        <!-- Card Grid -->
+        <div id="game-board" class="card-grid">
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Bones">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Bones.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Bones">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Bones.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div
+              class="flipCard card"
+              data-logo="Bat"
+              aria-label="Card with Bat icon"
+            >
+              <div class="card-face card-front">
+                <img src="assets/global/images/Bat.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div
+              class="flipCard card"
+              data-logo="Bat"
+              aria-label="Card with Bat icon"
+            >
+              <div class="card-face card-front">
+                <img src="assets/global/images/Bat.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Eye">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Eye.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Eye">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Eye.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Cauldron">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Cauldron.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Cauldron">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Cauldron.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Cobweb">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Cobweb.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Cobweb">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Cobweb.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Dracula">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Dracula.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Dracula">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Dracula.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Ghost">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Ghost.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Ghost">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Ghost.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Pumpkin">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Pumpkin.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="flipCard card" data-logo="Pumpkin">
+              <div class="card-face card-front">
+                <img src="assets/global/images/Pumpkin.png" alt="" />
+              </div>
+              <div class="card-face card-back">
+                <img src="assets/global/images/CobwebGrey.png" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Bones" >
-          <div class="card-face card-front"><img src="assets/global/images/Bones.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
+
+      <div id="end-div" class="hidden">
+        <div id="end-message"></div>
+        <button class="againBtn">Play Again</button>
       </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Bat" aria-label="Card with Bat icon">
-          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
+
+      <!-- Settings -->
+      <div class="settings">
+        <button class="settings-button">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
       </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Bat" aria-label="Card with Bat icon">
-          <div class="card-face card-front"><img src="assets/global/images/Bat.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Eye">
-          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Eye">
-          <div class="card-face card-front"><img src="assets/global/images/Eye.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Cauldron">
-          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Cauldron">
-          <div class="card-face card-front"><img src="assets/global/images/Cauldron.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Cobweb">
-          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Cobweb">
-          <div class="card-face card-front"><img src="assets/global/images/Cobweb.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Dracula">
-          <div class="card-face card-front"><img src="assets/global/images/Dracula.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Ghost">
-          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Ghost">
-          <div class="card-face card-front"><img src="assets/global/images/Ghost.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="flipCard card" data-logo="Pumpkin">
-          <div class="card-face card-front"><img src="assets/global/images/Pumpkin.png" alt=""></div>
-          <div class="card-face card-back"><img src="assets/global/images/CobwebGrey.png"></div>
+      <div id="settings-modal">
+        <div class="settings-container">
+          <div class="settings-header">
+            <h2>How to play</h2>
+            <button id="close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="settings-content">
+            <p>
+              Match all pairs of cards by flipping them two at a time. The fewer
+              moves you use and the faster you finish, the better your score!
+            </p>
+            <ul>
+              <li>
+                😀 Easy (4×4) – 16 cards (8 pairs) Great for beginners or a
+                quick warm-up!
+              </li>
+              <li>
+                🤔 Medium (6×6) – 36 cards (18 pairs) A fun challenge that tests
+                your memory and focus.
+              </li>
+              <li>
+                🔥 Hard (8×8) – 64 cards (32 pairs) For memory masters! Can you
+                handle it?
+              </li>
+            </ul>
+            <button id="unmute-button">
+              <i class="fa-solid fa-volume-low"></i>
+            </button>
+            <button id="mute-button">
+              <i class="fa-solid fa-volume-xmark"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-      <!-- Settings -->
-      <div class="sittings">
-        <button class="settings-button"><i class="fa-solid fa-gear"></i> Settings</button>
-      </div>
-<div id="end-div" class="hidden">
-<div id="end-screen" >
-  <div id="end-message"></div>
-  <button class="againBtn " style="font-size: 24px; padding: 8px;">Play Again <i class="fa-solid fa-arrow-rotate-right"></i></button>
-</div>
-</div>
-
-
-
-
-
-      <!-- Game Over Modal -->
-      <!-- <div class="game-over hidden">
-        <p>You completed the level!</p>
-        <p>Time: <span id="final-time">00:00</span></p>
-        <p>Moves: <span id="final-moves">0</span></p>
-        <button id="next-level">Next Level</button>
-        <button id="save-score">Save Score & Return Home</button>
-      </div> -->
-
-      <!-- <button id="settings-button" type="button" class="settings-button material-icons">settings</button>     -->
-      <!-- Settings Pop-Up -->
-      <!-- <div id="settings-popup" class="settings-popup hidden">
-  <div class="settings-popup-content">
-    <span class="close" onclick="closeSettingsPopup()">&times;</span>
-    <ul>
-      <li>
-        <div class="icons-container">
-          <a href="index.html" onclick="selectOption('Home')">
-            <img class="img1" src="assets/global/icons/home.png" alt="Home">
-          </a>
-          <a href="#" onclick="selectOption('Music')">
-            <button id="music-toggle" aria-label="Toggle Sound">
-              <img class="img2" src="./assets/global/icons/sound-on.png" alt="Sound On" id="sound-icon">
-            </button>
-          </a>
-        </div>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
-      </li>
-    </ul>
-  </div>
-</div> -->
-
-      <!-- Progress Bar Container -->
-      <!-- <div class="progress-bar-container">
-    <div class="progress-bar" id="progress-bar"></div>
-  </div> -->
-
-
-    <!-- Main Moudle -->
-    <script type="module" src="js/modules/gameLogic.js">
-    </script>
-
+    <script type="module" src="js/modules/gameLogic.js" defer></script>
+    <script type="module" src="js/modules/settings.js" defer></script>
   </body>
-
 </html>

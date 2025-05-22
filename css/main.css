@@ -1,19 +1,38 @@
-/* Space Background */
-body, .space-background {
+* {
   margin: 0;
   padding: 0;
-  background: url('/assets/global/images/animated-gifs-of-fighting-game-backgrounds-27.webp') no-repeat center center fixed;
-    /* font-family: 'Poppins', sans-serif; */
-      font-family: "Monoton", sans-serif;
-  /* font-weight: 400; */
-  font-style: normal;
+  box-sizing: border-box;
+}
+
+.space-background {
+  background: url("/assets/global/images/animated-gifs-of-fighting-game-backgrounds-27.webp")
+    no-repeat center center fixed;
+  font-family: "tahoma", sans-serif;
   background-size: cover;
   color: white;
   height: 100vh;
   overflow: hidden;
 }
 
-/* Start Title */
+.space-background #show-score {
+  background-color: rgb(95, 136, 196);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.space-background #show-score:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(150, 70, 85);
+  color: white;
+}
+
 .start-container {
   text-align: center;
   position: relative;
@@ -22,547 +41,196 @@ body, .space-background {
 .start-title {
   font-size: 5rem;
   color: white;
-  text-shadow: 2px 2px 7px #0051ff;
 }
 
-  .mybtn-start {
-        background-color: rgb(95, 136, 196);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        padding: 14px 36px;
-        font-size: 1.25rem;
-        font-weight: 600;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .mybtn-start:hover {
-        transform: scale(1.08);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        background-color: rgb(150, 70, 85);
-        color: white;
-    }
-
-/* Default positions for larger screens */
-.gif1 { top: 10%; left: 10%; width: 150px; }
-.gif2 { top: 50%; left: 70%; width: 150px; }
-.gif3 { top: 70%; left: 20%; width: 150px; }
-
-/* Menu Options */
-/* .menu-options a {
-  display: block;
-  margin: 5% 0;
+.mybtn-start {
+  background-color: rgb(95, 136, 196);
   color: white;
-  text-decoration: none;
-  font-size: 2rem;
-  transition: color 0.3s;
-  background-color: #0051ff;
-}
-.menu-options a:hover {
-  color: #ffcc00;
-} */
-
-/* Make "View Scores" text smaller */
-#view-scores {
-  font-size: 1.5rem; /* Adjusted to make it smaller */
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Pop-up Modal */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+.mybtn-start:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(150, 70, 85);
+  color: white;
+}
+
+.mycontainer {
+  background-image: url("/assets/global/images/animated-gifs-of-fighting-game-backgrounds-27.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1rem;
+  height: 100vh;
+}
+
+.visible {
+  display: block;
+}
+
+.difficulty-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  border: 2px solid white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.difficulty-card:hover {
+  background-color: #000;
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.difficulty-card.active {
+  border: 2px solid rgb(196, 95, 112);
+  background-color: rgba(110, 72, 170, 0.1);
+}
+
+.difficulty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.game-container {
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.game-container h2 {
+  margin-top: 3rem;
+}
+
+.show {
+  display: flex !important;
+}
+
+#settings-modal {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
+  width: 100%;
+  display: none;
   justify-content: center;
   align-items: center;
-  z-index: 10;
 }
-.popup.hidden {
+
+#settings-modal .settings-container {
+  background-color: #000;
+  width: 50vw;
+  padding: 1rem;
+  border: 2px solid orange;
+  box-shadow: 5px 5px 20px orange, -5px -5px 20px orange;
+}
+
+#settings-modal .settings-container .settings-content ul {
+  margin: 0;
+  padding: 0;
+}
+
+#settings-modal .settings-container .settings-content p {
+  margin-bottom: 1rem;
+}
+
+#settings-modal .settings-container .settings-content ul li {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+#settings-modal .settings-container .settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.3rem;
+}
+
+#settings-modal .settings-container .settings-header button {
+  background: red;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.2rem;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#settings-modal .settings-container .settings-content #unmute-button,
+#settings-modal .settings-container .settings-content #mute-button {
+  background: red;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.2rem;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.hidden {
   display: none;
 }
-.popup-content {
-  background: #1a1a40;
-  padding: 30px; /* Increased padding for better spacing */
-  border-radius: 0;
+
+#end-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
-  width: 80%;
-  max-width: 500px;
-  position: relative;
-  border: 4px solid #4fd1c5;
-  box-shadow: 0 0 0 4px #ffd54f, 0 0 0 8px #4fd1c5;
-  font-family: 'Press Start 2P', cursive;
-  color: #f0f0f0;
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Add spacing between elements in the pop-up */
-.popup-content h2 {
-  color: #ffd54f; /* Highlight title */
-  margin-bottom: 20px; /* Space below the heading */
-}
-
-.popup-content ol {
-  font-size: 12px; 
-  text-align:start;
-  line-height: 1.8; 
-  margin: 0 20px; 
-}
-
-.popup-content p {
-  margin-bottom: 20px; /* Space below paragraphs */
-}
-
-.popup-content button {
-  margin: 10px 0; /* Space around buttons */
-}
-
-/* Close Button */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #ffd54f;
-  font-size: 1.5rem;
-  cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: #4fd1c5;
-  transform: scale(1.2);
-}
-
-/* Difficulty Select Dropdown */
-.difficulty-select {
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 0.9em;
-  color: #f0f0f0;
-  background-color: #1a1a40;
-  border: 2px solid #4fd1c5;
-  border-radius: 0;
-  cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  transition: all 0.3s ease;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffd54f%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
-}
-
-.difficulty-select:hover {
-  border-color: #ffd54f;
-  background-color: #2a2a60;
-  transform: scale(1.05);
-}
-
-/* Start Game Button */
-.start-game-btn {
-  padding: 12px 35px;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #1a1a40;
-  background: #4fd1c5;
-  border: 2px solid #ffd54f;
-  border-radius: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Press Start 2P', cursive;
-  box-shadow: 4px 4px 0 #ffd54f;
-}
-
-.start-game-btn:hover {
-  background: #ffd54f;
-  border-color: #4fd1c5;
-  transform: translateY(-2px);
-  box-shadow: 6px 6px 0 #4fd1c5;
-}
-
-/* Animation for Floating GIFs */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Sound Controls */
-.sound-controls {
-  position: fixed;
-  bottom: 30px; 
-  right: 30px; 
-  z-index: 1000; 
-}
-
-#music-toggle {
-  padding: 0; 
-  background: none; 
-  border: none; 
-  cursor: pointer;
-  width: 50px; 
-  height: 50px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease; 
-}
-
-/* Icon Glow */
-#sound-icon {
-  width: 48px; 
-  height: 48px; 
-  image-rendering: pixelated; 
-  filter: drop-shadow(0 0 8px rgba(255, 213, 79, 0.8)); 
-  transition: filter 0.3s ease; 
-}
-
-#music-toggle:hover #sound-icon {
-  filter: drop-shadow(0 0 16px rgba(79, 209, 197, 0.8)); 
-}
-
-/* Hover Animation */
-#music-toggle:hover {
-  transform: scale(1.1); 
-}
-
-/* High Scores Table */
-.score-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.score-container th,
-.score-container td {
-  padding: 10px;
-  text-align: center;
-  border: 2px solid #4fd1c5;
-}
-
-.score-container th {
-  background-color: #1a1a40;
-  color: #ffd54f;
-}
-
-.score-container td {
-  background-color: #2a2a60;
-  color: #f0f0f0;
-} 
-
-/* Countdown Overlay Styles */
-#countdown-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95)); /* Dark gradient background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Ensure it's on top of everything */
-  font-family: 'Press Start 2P', cursive;
-  color: white;
-  font-size: 8rem;
-  text-shadow: 0 0 20px #ff9800, 0 0 40px #ff9800, 0 0 60px #ff9800; /* Glowing text effect */
-  animation: pulse 1s infinite;
-}
-
-/* Pulsating Animation */
-@keyframes pulse {
-  0% {
-      transform: scale(1);
-      opacity: 1;
-  }
-  50% {
-      transform: scale(1.1);
-      opacity: 0.8;
-  }
-  100% {
-      transform: scale(1);
-      opacity: 1;
-  }
-}
-
-/* Countdown Number Animation */
-@keyframes countdownPop {
-  0% {
-      transform: scale(0);
-      opacity: 0;
-  }
-  50% {
-      transform: scale(1.2);
-      opacity: 1;
-  }
-  100% {
-      transform: scale(1);
-      opacity: 1;
-  }
-}
-
-/* Apply the pop animation to the countdown numbers */
-#countdown-overlay span {
-  display: inline-block;
-  animation: countdownPop 0.5s ease-out;
-}
-
-/* Add a subtle background animation */
-#countdown-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255, 152, 0, 0.1), transparent);
-  animation: backgroundPulse 3s infinite;
-}
-
-@keyframes backgroundPulse {
-  0% {
-      transform: scale(1);
-      opacity: 0.5;
-  }
-  50% {
-      transform: scale(1.2);
-      opacity: 0.8;
-  }
-  100% {
-      transform: scale(1);
-      opacity: 0.5;
-  }
-}
-
-/* Best Score Popup */
-.best-score-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    animation: fadeIn 0.3s ease-out;
-}
-
-.best-score-content {
-    background: #1a1a40;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    border: 4px solid #4fd1c5;
-    box-shadow: 0 0 0 4px #ffd54f;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.best-score-content h2 {
-    color: #ffd54f;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.best-score-content p {
-    color: white;
-    margin: 0.5rem 0;
-}
-
-.close-best-score {
-    margin-top: 1rem;
-    padding: 0.5rem 2rem;
-    background: #4fd1c5;
-    border: 2px solid #ffd54f;
-    color: white;
-    cursor: pointer;
-    font-family: 'Press Start 2P', cursive;
-    transition: all 0.3s ease;
-}
-
-.close-best-score:hover {
-    background: #ffd54f;
-    transform: translateY(-2px);
-}
-
-/* Confetti Animation */
-.confetti {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    pointer-events: none;
-    animation: confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall {
-    0% {
-        transform: translateY(-100vh) rotate(0deg);
-    }
-    100% {
-        transform: translateY(100vh) rotate(720deg);
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Hint Timer Styles */
-.hint-timer-container {
-    position: fixed;
-    top: 50%;
-    left: calc(50% + 60px); /* Position it to the right of the hint button */
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    display: inline-block;
-    margin-left: 10px; /* Add some spacing between button and timer */
-}
-
-.hint-timer {
-    position: relative;
-    width: 40px; /* Made smaller to fit next to button */
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.timer-svg {
-    width: 40px; /* Match container size */
-    height: 40px;
-    transform: rotate(-90deg);
-}
-
-.timer-circle-bg {
-    fill: none;
-    stroke: rgba(0, 0, 0, 0.3);
-    stroke-width: 4px; 
-}
-
-.timer-circle {
-    fill: none;
-    stroke: #4fd1c5;
-    stroke-width: 4px;
-    stroke-linecap: round;
-    stroke-dasharray: 113; /* 2 * π * 18 (new radius) */
-}
-
-.timer-number {
-    position: absolute;
-    font-family: 'Press Start 2P', cursive;
-    color: white;
-    font-size: 14px; /* Smaller font size */
-    text-shadow: 0 0 8px rgba(79, 209, 197, 0.8);
-}
-
-@keyframes timer-countdown {
-    from {
-        stroke-dashoffset: 0;
-    }
-    to {
-        stroke-dashoffset: 113; /* Match new stroke-dasharray */
-    }
-}
-
-/* Update the hint button to accommodate the timer */
-#hint-button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.settings-button{
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
   z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.againBtn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
-/* animation for unmatched cards */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-10px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-10px); }
-  80% { transform: translateX(10px); }
+@media screen and (max-width: 768px) {
+  .mycontainer {
+    height: auto;
+  }
+
+  .start-container .start-title {
+    font-size: 3rem;
+  }
+
+  .difficulty-card:hover {
+    transform: scale(0.9);
+  }
+
+  #settings-modal .settings-container {
+    width: 80vw;
+  }
 }
 
-.card.shake {
-  animation: shake 0.5s ease-in-out;
-  border: 2px solid #ff0000;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
-
-/* Responsive Design*/
-@media (max-width: 990px) {
-  .floating-gif {
-    width: 80px; /* Smaller GIFs for medium screens */
+@media screen and (max-width: 550px) {
+  .start-container .start-title {
+    font-size: 1.9rem;
   }
 
-  .gif1 { top: 10%; left: 15%; width: 120px;}
-  .gif2 { top: 45%; left: 70%; width: 120px; }
-  .gif3 { top: 65%; left: 15%; width: 120px;}
-}
-
-@media (max-width: 768px) {
-  .start-title {
-    font-size: 2.5rem; 
+  .mycontainer {
+    height: 100vh;
   }
-
-  .menu-options a {
-    font-size: 1.5rem;
-  }
-
-  .popup-content {
-    width: 90%;
-    padding: 20px;
-  }
-  .hint-timer {
-      width: 30px;
-      height: 30px;
-  }
-
-  .timer-svg {
-      width: 30px;
-      height: 30px;
-  }
-
-  .timer-number {
-      font-size: 12px;
-  }
-  .floating-gif {
-    width: 60px; 
-  }
-
-  .gif1 { top: 20%; left: 7%; width: 90px; }
-  .gif2 { top: 40%; left: 80%; width: 90px; }
-  .gif3 { top: 60%; left: 15%; width: 90px; }
-}
-
-@media (max-width: 480px) {
-  .floating-gif {
-    width: 50px;
-  }
-
-  .gif1 { top: 20%; left: 5%; width: 70px; }
-  .gif2 { top: 42%; left: 80%; width: 70px; }
-  .gif3 { top: 55%; left: 10%; width: 70px; }
 }

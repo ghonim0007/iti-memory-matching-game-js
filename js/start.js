@@ -1,198 +1,142 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const startGameButton = document.getElementById("start-game");
+  const namePopup = document.getElementById("name-popup");
+  const submitButton = document.getElementById("submit-name");
+  const playerNameInput = document.getElementById("player-name");
 
-const easyLevel = document.getElementById("easy-level");
-const mediumPage = document.getElementById("medium-level");
-const hardPage = document.getElementById("hard-level");
+  if (startGameButton) {
+    startGameButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      namePopup.style.display = "flex";
+      playerNameInput.focus();
+    });
+  }
 
-const startGameButton = document.getElementById("start-game");
+  if (submitButton) {
+    submitButton.addEventListener("keydown", (event) => {
+      event.preventDefault();
+      if (event.key === "Enter") {
+        const playerName = playerNameInput.value.trim();
+        if (playerName) {
+          localStorage.setItem("playerName", playerName);
+          namePopup.style.display = "none";
+          window.location.href = "./levels.html";
+        } else {
+          alert("Please enter your name!");
+        }
+      }
+    });
+  }
 
-if (easyLevel) {
-  easyLevel.addEventListener("click", () => {
-    window.location.href = "easy.html";
-  });
-}
-if (mediumPage) {
-  mediumPage.addEventListener("click", () => {
-    window.location.href = "medium.html";
-  });
-}
-if (hardPage) {
-  hardPage.addEventListener("click", () => {
-    window.location.href = "hard.html";
-  });
-}
-startGameButton.addEventListener("click", () => {
-  window.location.href = "levels.html";
+  if (playerNameInput) {
+    // Handle button click
+    submitButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const playerName = playerNameInput.value.trim();
+      if (playerName) {
+        localStorage.setItem("playerName", playerName);
+        namePopup.style.display = "none";
+        window.location.href = "./levels.html";
+      } else {
+        alert("Please enter your name!");
+      }
+    });
+
+    // Handle Enter key
+    playerNameInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        submitButton.click();
+      }
+    });
+  }
+
+  const easyCard = document.getElementById("easy-level");
+  const mediumCard = document.getElementById("medium-level");
+  const hardCard = document.getElementById("hard-level");
+  let selectedLevel = "";
+
+  if (easyCard) {
+    easyCard.addEventListener("click", (event) => {
+      event.preventDefault();
+      selectedLevel = "easy";
+      window.location.href = "./easy.html";
+    });
+  }
+
+  if (mediumCard) {
+    mediumCard.addEventListener("click", (event) => {
+      event.preventDefault();
+      selectedLevel = "medium";
+      window.location.href = "./medium.html";
+    });
+  }
+
+  if (hardCard) {
+    hardCard.addEventListener("click", (event) => {
+      event.preventDefault();
+      selectedLevel = "hard";
+      window.location.href = "./hard.html";
+    });
+  }
 });
 
+document.getElementById("show-score").addEventListener("click", function () {
+  const scoresPopup = document.getElementById("score-popup");
+  const scoresContainer = document.getElementById("scores-container");
 
-// import { GameLogic } from "./modules/gameLogic.js";
-// import { getSavedScores } from "./modules/storage.js";
-// import { preloadAssets } from "./modules/preload.js";
-// import { startBackgroundMusic, playSound } from "./modules/sound.js";
+  scoresContainer.innerHTML = "";
 
-// // DOM Elements
-// const popup = document.getElementById("popup");
-// const closePopup = document.getElementById("close-popup");
-// const howToPlay = document.getElementById("how-to-play");
-// const viewScores = document.getElementById("view-scores");
-// const scoresPopup = document.getElementById("scores-popup");
-// const closeScoresPopup = document.getElementById("close-scores-popup");
-// const difficultySelect = document.getElementById("difficulty-select");
-// const clickSound = document.getElementById("click-sound");
-// let musicStarted = false;
-// // Function to start background music on user interaction
-// function handleUserInteraction() {
-//   if (!musicStarted) {
-//     startBackgroundMusic();
-//     musicStarted = true;
-//   }
-// }
+  const playersData =
+    JSON.parse(localStorage.getItem("memoryGameScores")) || [];
 
-// // Event listeners for user interaction
-// document.addEventListener("click", handleUserInteraction, { once: true });
-// document.addEventListener("keydown", handleUserInteraction, { once: true });
-// // easyLevel.addEventListener('click' ,function(){
-// //     window.location.href='easy.html'
-// // })
+  if (playersData.length === 0) {
+    scoresContainer.innerHTML = "<p>No scores recorded yet!</p>";
+  } else {
+    // فرز حسب الوقت (الأسرع أولاً)
+    playersData.sort((a, b) => a.time - b.time);
 
-// // Show or hide popups
-// if (howToPlay) {
-//   // howToPlay.addEventListener('click', () => {
-//   //     popup.classList.remove('hidden');
-//   //     playSound(clickSound);
-//   // });
+    const table = document.createElement("table");
+    table.className = "table table-striped";
 
-//   // difficultySelect.addEventListener('click', () => {
-//   //     playSound(clickSound);
-//   // });
-//   howToPlay.addEventListener("click", () => {
-//     window.location.href = "levels.html";
-//     playSound(clickSound);
-//   });
+    const thead = document.createElement("thead");
+    thead.innerHTML = `
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Moves</th>
+        <th>Level</th>
+      </tr>
+    `;
+    table.appendChild(thead);
 
-//   difficultySelect.addEventListener("click", () => {
-//     playSound(clickSound);
-//   });
-// }
-// if (easyLevel) {
-//   // howToPlay.addEventListener('click', () => {
-//   //     popup.classList.remove('hidden');
-//   //     playSound(clickSound);
-//   // });
+    const tbody = document.createElement("tbody");
+    playersData.forEach((player, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${player.player}</td>
+        <td>${formatTime(player.time)}</td>
+        <td>${player.moves}</td>
+        <td>${player.level}</td>
+      `;
+      tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
 
-//   // difficultySelect.addEventListener('click', () => {
-//   //     playSound(clickSound);
-//   // });
+    scoresContainer.appendChild(table);
+  }
 
-//   difficultySelect.addEventListener("click", () => {
-//     playSound(clickSound);
-//   });
-// }
-// easyLevel.addEventListener("click", () => {
-//   window.location.href = "easy.html";
-// });
+  scoresPopup.style.display = "flex";
+});
 
-// if (closePopup) {
-//   closePopup.addEventListener("click", () => {
-//     popup.classList.add("hidden");
-//     playSound(clickSound);
-//   });
-// }
+function formatTime(seconds) {
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `${mins}:${secs}`;
+}
 
-// if (viewScores) {
-//   viewScores.addEventListener("click", () => {
-//     scoresPopup.classList.remove("hidden");
-//     playSound(clickSound);
-
-//     // Display high scores for all levels
-//     const easyScores = getSavedScores("easy");
-//     const mediumScores = getSavedScores("medium");
-//     const hardScores = getSavedScores("hard");
-
-//     const scoresContainer = document.getElementById("scores-page");
-//     if (scoresContainer) {
-//       scoresContainer.innerHTML = `
-//                 <h2>High Scores</h2>
-//                 <div class="score-container">
-//                     <h3>Easy Level</h3>
-//                     <table>
-//                         <tr>
-//                             <th>Moves</th>
-//                             <th>Time</th>
-//                         </tr>
-//                         ${easyScores
-//                           .map(
-//                             (score) => `
-//                             <tr>
-//                                 <td>${score.moves}</td>
-//                                 <td>${formatTime(score.time)}</td>
-//                             </tr>
-//                         `
-//                           )
-//                           .join("")}
-//                     </table>
-
-//                     <h3>Medium Level</h3>
-//                     <table>
-//                         <tr>
-//                             <th>Moves</th>
-//                             <th>Time</th>
-//                         </tr>
-//                         ${mediumScores
-//                           .map(
-//                             (score) => `
-//                             <tr>
-//                                 <td>${score.moves}</td>
-//                                 <td>${formatTime(score.time)}</td>
-//                             </tr>
-//                         `
-//                           )
-//                           .join("")}
-//                     </table>
-
-//                     <h3>Hard Level</h3>
-//                     <table>
-//                         <tr>
-//                             <th>Moves</th>
-//                             <th>Time</th>
-//                         </tr>
-//                         ${hardScores
-//                           .map(
-//                             (score) => `
-//                             <tr>
-//                                 <td>${score.moves}</td>
-//                                 <td>${formatTime(score.time)}</td>
-//                             </tr>
-//                         `
-//                           )
-//                           .join("")}
-//                     </table>
-//                 </div>
-//             `;
-//     }
-//   });
-// }
-
-// if (closeScoresPopup) {
-//   closeScoresPopup.addEventListener("click", () => {
-//     scoresPopup.classList.add("hidden");
-//     playSound(clickSound);
-//   });
-// }
-
-// // Start game logic
-
-// // Helper function to format time
-// function formatTime(seconds) {
-//   const minutes = Math.floor(seconds / 60);
-//   const secs = seconds % 60;
-//   return `${minutes.toString().padStart(2, "0")}:${secs
-//     .toString()
-//     .padStart(2, "0")}`;
-// }
-
-// // Set random animation duration for floating GIFs
-// const floatingGifs = document.querySelectorAll(".floating-gif");
-// floatingGifs.forEach((gif) => {
-//   gif.style.animationDuration = `${Math.random() * 6 + 4}s`;
-// });
+document.getElementById("close-score").addEventListener("click", function () {
+  document.getElementById("score-popup").style.display = "none";
+});
