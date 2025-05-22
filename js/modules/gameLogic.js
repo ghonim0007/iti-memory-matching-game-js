@@ -10,6 +10,7 @@ const flipSound = new Audio("./assets/easy/audio/click-sound.mp3");
 const matchSound = new Audio("./assets/easy/audio/match-sound.mp3");
 const mismatchSound = new Audio("./assets/easy/audio/wrong-sound.mp3");
 const winSound = new Audio("./assets/easy/audio/win-sound.mp3");
+const resetBtn = document.getElementById('reset-game');
 
 
 let firstCard = null;
@@ -241,3 +242,4 @@ const againBtn = document.querySelector(".againBtn");
 if (againBtn) {
   againBtn.addEventListener("click", restartGame);
 }
+resetBtn.addEventListener('click',restartGame)
