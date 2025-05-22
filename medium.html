@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memory Game - Medium</title>
+    <title>Memory Adventure - Medium</title>
     <link rel="stylesheet" href="/css/medium.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link
@@ -13,6 +13,9 @@
   </head>
   <body>
     <div class="container mediumPage">
+            <div class="home">
+        <a class="nav-link active " aria-current="page" href="index.html"><i class="fa-solid fa-house"></i>  Home</a>
+</div>
       <h2 class="main-title">Medium Level</h2>
       <div class="overlay">
         <div class="game-info-container">
@@ -427,7 +430,15 @@
           </div>
         </div>
       </div>
+        <div id="end-div" class="hidden">
+        <div id="end-message"></div>
+        <button class="againBtn">Play Again</button>
+      </div>
+               <button class="btn" id="reset-game">
+ <span>Reset Game </span> <i class="fa-solid fa-arrow-rotate-right"></i>
+</button>
     </div>
+
     <script src="./js/modules/gameLogic.js" type="module" defer></script>
     <script src="./js/modules/settings.js" type="module" defer></script>
   </body>

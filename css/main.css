@@ -5,7 +5,26 @@
   background-position: center;
   height: 100vh;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar {
+  margin-top: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  z-index: 1000; 
+  background-color: #DC3545;
+}
 .mycontainer {
   background-image: url("/assets/global/images/animated-gifs-of-fighting-game-backgrounds-27.webp");
   background-size: cover;

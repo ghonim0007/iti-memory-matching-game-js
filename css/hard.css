@@ -6,6 +6,20 @@ body {
   color: white;
   height: 100vh;
 }
+.nav-link {
+  text-decoration: none;
+  color: white;
+
+}
+.home{
+  font-size: 28px;
+   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+    position: fixed;
+  top: 20px;
+  left: 60px;
+}
 
 .hardPage .main-title {
   text-align: center;
@@ -202,4 +216,23 @@ body {
 }
 .settings-button:hover {
   background-color: rgba(78, 85, 104, 0.9);
+}
+.btn {
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.5rem;
+}
+.btn span{
+  font-size: 1.6rem;
+}
+button.btn {
+  background-color: #ff2600;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  position: relative;
+  bottom: 0;
 }
