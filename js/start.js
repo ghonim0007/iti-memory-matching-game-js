@@ -56,3 +56,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+document.getElementById('show-score').addEventListener('click', function() {
+  const scoresPopup = document.getElementById('score-popup');
+  const scoresContainer = document.getElementById('scores-container');
+  
+  scoresContainer.innerHTML = '';
+  
+  const playersData = JSON.parse(localStorage.getItem('memoryGameScores')) || [];
+  
+  if (playersData.length === 0) {
+    scoresContainer.innerHTML = '<p>No scores recorded yet!</p>';
+  } else {
+    playersData.sort((a, b) => a.time - b.time);
+    
+    const table = document.createElement('table');
+    table.className = 'table table-striped';
+    
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Moves</th>
+        <th>Level</th>
+      </tr>
+    `;
+    table.appendChild(thead);
+    
+    const tbody = document.createElement('tbody');
+    playersData.forEach((player, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${player.player}</td>
+        <td>${formatTime(player.time)}</td>
+        <td>${player.moves}</td>
+        <td>${player.level}</td>
+      `;
+      tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+    
+    scoresContainer.appendChild(table);
+  }
+  
+  scoresPopup.style.display = 'flex';
+});
+
+function formatTime(seconds) {
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `${mins}:${secs}`;
+}
+
+document.getElementById('close-score').addEventListener('click', function () {
+document.getElementById('score-popup').style.display = 'none';
+});

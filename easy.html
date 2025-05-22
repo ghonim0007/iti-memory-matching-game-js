@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memory Game - easy</title>
+    <title>Memory Card - easy</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -11,16 +11,10 @@
     />
     <link rel="stylesheet" href="/css/easy.css" />
     <link rel="stylesheet" href="/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
-  </head>
+   
 
   <body>
-    <!-- Game Countainer-->
+    <!-- Game Container-->
     <div class="container esayPage">
       <h2 class="main-title">Easy Level</h2>
 
@@ -28,7 +22,7 @@
       <div class="overlay">
         <div class="game-info-container">
           <p>Moves: <span id="moves">0</span></p>
-          <p>Time: <span id="timer">180</span></p>
+          <p>Time: <span id="timer">00:00</span></p>
           <button id="hint-button">
             Hint:<span id="hints-remaining">3</span>
           </button>
@@ -207,6 +201,11 @@
         </div>
       </div>
 
+      <div id="end-div" class="hidden">
+        <div id="end-message"></div>
+        <button class="againBtn">Play Again</button>
+      </div>
+      
       <!-- Settings -->
       <div class="sittings">
         <button class="settings-button">
@@ -249,7 +248,10 @@
           </div>
         </div>
       </div>
+
+
     </div>
+
     <script type="module" src="js/modules/gameLogic.js" defer></script>
     <script type="module" src="js/modules/settings.js" defer></script>
   </body>

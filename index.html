@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Matching Game</title>
+
+    <!-- CSS Links -->
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="/css/popup.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -19,8 +21,6 @@
       href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
       rel="stylesheet"
@@ -29,18 +29,52 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
+    <!-- Popup Style (if not already in popup.css) -->
+    <style>
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+      .popup-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+      }
+    </style>
   </head>
+
   <body>
     <div class="space-background">
       <!-- Start Page Content -->
       <div class="start-container">
         <h1 class="start-title mb-5">Memory Matching Game</h1>
+
         <div class="menu-options">
+          <!-- Start Game Button -->
           <button
             id="start-game"
             class="d-block m-auto btn-lg mybtn-start mt-5 fs-2"
           >
             <i class="fas fa-play me-2"></i> Start Game
+          </button>
+
+          <!-- Show Score Button -->
+          <button
+            id="show-score"
+            class="d-block m-auto btn-lg mybtn-score mt-3 fs-4"
+          >
+            <i class="fas fa-trophy me-2"></i> Show Score
           </button>
         </div>
 
@@ -59,10 +93,23 @@
             </button>
           </div>
         </div>
-      </div>
 
-      <script src="./js/modules/settings.js" type="module" defer></script>
-      <script src="./js/start.js" type="module" defer></script>
+        <!-- Popup for Score Display (Updated to show all scores) -->
+        <div id="score-popup" class="popup">
+          <div class="popup-content" style="width: 80%; max-width: 600px;">
+            <h2>Player Scores</h2>
+            <div
+              id="scores-container"
+              style="max-height: 400px; overflow-y: auto;"
+            ></div>
+            <button id="close-score" class="btn btn-danger mt-3">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- JS Scripts -->
+    <script src="./js/modules/settings.js" type="module" defer></script>
+    <script src="./js/start.js" type="module" defer></script>
   </body>
 </html>

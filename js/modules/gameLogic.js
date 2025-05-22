@@ -1,17 +1,28 @@
 import { playSound } from "./utils.js";
+const playerNameDisplay = document.getElementById("player-name-display");
+const playerName = localStorage.getItem("playerName");
+
+if (playerNameDisplay && playerName) {
+  playerNameDisplay.textContent = playerName;
+}
+
 const flipSound = new Audio("./assets/easy/audio/click-sound.mp3");
 const matchSound = new Audio("./assets/easy/audio/match-sound.mp3");
 const mismatchSound = new Audio("./assets/easy/audio/wrong-sound.mp3");
 const winSound = new Audio("./assets/easy/audio/win-sound.mp3");
 
+
 let firstCard = null;
 let secondCard = null;
 let moves = 0;
-let lockBoard = true; // Prevent clicking during preview
-const flipDelay = 1000; // Time to flip cards back if not matched
-const previewTime = 2000; // Time to show preview on start
+let lockBoard = true; 
+const flipDelay = 1000; 
+const previewTime = 2000;
+const currentLevel = 'easy'; 
 
 const cards = document.querySelectorAll(".card");
+let timeLeft = 0;
+let timerInterval = null;
 
 function flipCard(card) {
   if (
@@ -20,6 +31,7 @@ function flipCard(card) {
     card.classList.contains("matched")
   )
     return;
+  
   flipSound.currentTime = 0;
   flipSound.play();
   card.classList.add("flipped");
@@ -28,7 +40,7 @@ function flipCard(card) {
     firstCard = card;
   } else {
     secondCard = card;
-    lockBoard = true; // Prevent clicking more cards
+    lockBoard = true;
     moves++;
     document.getElementById("moves").textContent = moves;
     checkMatch();
@@ -46,9 +58,13 @@ function checkMatch() {
 
     playSound(matchSound);
     resetTurn();
-    if (document.querySelectorAll(".card.matched").length === cards.length) {
-      playSound(winSound);
-      endGame(true);
+    
+    const allMatched = document.querySelectorAll('.card.matched').length === cards.length;
+    if (allMatched) {
+      setTimeout(() => {
+        playSound(winSound);
+        endGame(true);
+      }, 500);
     }
   } else {
     mismatchSound.currentTime = 0;
@@ -66,10 +82,6 @@ function resetTurn() {
   lockBoard = false;
 }
 
-cards.forEach((card) => {
-  card.addEventListener("click", () => flipCard(card));
-});
-
 function previewCards() {
   cards.forEach((card) => card.classList.add("flipped"));
   setTimeout(() => {
@@ -82,70 +94,90 @@ function previewCards() {
     startTimer();
   }, previewTime);
 }
+
 function endGame(won) {
   const endCard = document.getElementById("end-message");
   clearInterval(timerInterval);
   document.getElementById("end-div").classList.remove("hidden");
-  endCard.innerHTML = won
-    ? "<h3>Congratulations, You Win! 🎉</h3>"
-    : "<h3>Time’s Up! You Lose ⏰</h3>";
-  endCard.style.backgroundColor = "green";
-  endCard.style.color = "white";
-  endCard.style.boxShadow = "0 12px 30px rgba(0, 0, 0, 0.4)";
-  endCard.style.padding = "40px 10px";
-  endCard.style.borderRadius = "10px";
+
+  if (won) {
+    const finalTime = formatTime(timeLeft);
+    const timeInSeconds = timeLeft;
+    const playerName = localStorage.getItem('playerName') || 'Guest';
+    
+const gameResults = JSON.parse(localStorage.getItem('memoryGameScores') || '[]');
+
+gameResults.push({
+  player: playerName,
+  time: timeInSeconds,
+  moves: moves,
+  level: currentLevel,
+  date: new Date().toLocaleDateString()
+});
+localStorage.setItem('memoryGameScores', JSON.stringify(gameResults));
+
+
+    localStorage.setItem('gameResults', JSON.stringify(gameResults));
+
+   endCard.innerHTML = `
+<h3>Congratulations, you won! 🎉</h3>
+<p>You completed the game in <strong>${finalTime}</strong></p>
+<p>Number of moves: <strong>${moves}</strong></p>
+`;
+
+    endCard.style.backgroundColor = "#4CAF50";
+    endCard.style.color = "white";
+    endCard.style.boxShadow = "0 12px 30px rgba(0, 0, 0, 0.4)";
+    endCard.style.padding = "40px 15px";
+    endCard.style.borderRadius = "10px";
+    endCard.style.textAlign = "center";
+    endCard.style.fontFamily = "Arial, sans-serif";
+
+    const showScoreBtn = document.getElementById('show-score');
+    if (showScoreBtn) {
+      const last = gameResults[gameResults.length - 1];
+      showScoreBtn.textContent = `Latest result:${last.player}, ${formatTime(last.time)}, ${last.moves} moves`;
+    }
+  }
 }
+
 function shuffleCards() {
   const cardGrid = document.getElementById("game-board");
   const shuffled = [...cards].sort(() => 0.5 - Math.random());
   shuffled.forEach((card) => cardGrid.appendChild(card.parentElement));
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  shuffleCards();
-  setTimeout(() => {
-    previewCards();
-  }, 300);
-});
-
-let timeLeft = 180;
-let timerInterval = null;
+function formatTime(seconds) {
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `${mins}:${secs}`;
+}
 
 function startTimer() {
   const timeDisplay = document.getElementById("timer");
+  timeDisplay.textContent = formatTime(timeLeft); 
   timerInterval = setInterval(() => {
-    timeLeft--;
-    timeDisplay.textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      endGame(false);
-    }
+    timeLeft++;
+    timeDisplay.textContent = formatTime(timeLeft);
   }, 1000);
 }
 
 function restartGame() {
   document.getElementById("end-div").classList.add("hidden");
+  // document.getElementById("end-div").style.display = 'none';
   location.reload();
 }
 
-// againBtn.addEventListener("click", function () {
-//   restartGame();
-// });
-
-// Hint function
 
 const hint = document.getElementById("hint-button");
 const hintsRemaining = document.getElementById("hints-remaining");
 let hintNum = 3;
 
 function giveHint(duration) {
-  // 1. Find all cards that aren’t matched yet
   const unmatched = Array.from(document.querySelectorAll(".card")).filter(
     (c) => !c.classList.contains("matched")
   );
 
-  // 2. Group them by logo
   const groups = unmatched.reduce((map, card) => {
     const logo = card.dataset.logo;
     map[logo] = map[logo] || [];
@@ -153,21 +185,18 @@ function giveHint(duration) {
     return map;
   }, {});
 
-  // 3. Find a group with at least two cards
   const pair = Object.values(groups).find((g) => g.length >= 2);
-  if (!pair) return; // no more hints available
+  if (!pair) return;
 
   if (lockBoard) return;
 
   const [cardA, cardB] = pair;
 
-  // 4. Flip them as the “hint”
   [cardA, cardB].forEach((c) => {
     c.classList.add("flipped");
     hint.style.pointerEvents = "none";
   });
 
-  // 5. After the timeout, flip them back (unless they've since been matched)
   setTimeout(() => {
     [cardA, cardB].forEach((c) => {
       if (!c.classList.contains("matched")) {
@@ -178,6 +207,7 @@ function giveHint(duration) {
       hint.style.pointerEvents = "auto";
     }
   }, duration);
+  
   if (hintNum > 0) {
     hintNum--;
     hintsRemaining.textContent = hintNum;
@@ -187,6 +217,27 @@ function giveHint(duration) {
   }
 }
 
-hint.addEventListener("click", () => {
-  giveHint(2000);
+window.addEventListener("DOMContentLoaded", () => {
+  shuffleCards();
+  setTimeout(() => {
+    previewCards();
+  }, 300);
 });
+
+cards.forEach((card) => {
+  card.addEventListener("click", () => flipCard(card));
+});
+
+if (hint) {
+  hint.addEventListener("click", () => giveHint(2000));
+}
+
+const showScoreBtn = document.getElementById("show-score-btn");
+if (showScoreBtn) {
+  showScoreBtn.addEventListener("click", displayScores);
+}
+
+const againBtn = document.querySelector(".againBtn");
+if (againBtn) {
+  againBtn.addEventListener("click", restartGame);
+}
